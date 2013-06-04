@@ -1,4 +1,4 @@
-(use spiffy spiffy-uri-match)
+(use intarweb spiffy spiffy-uri-match)
 
 ;; Routes
 (vhost-map `((".*" . ,(uri-match/spiffy
@@ -11,7 +11,7 @@
                             (POST ,(lambda (continue)
                                      (send-response
                                        status: 'ok
-                                       body: "Creating device"
+                                       body: (format "Creating device: ~A" (read-urlencoded-request-data (current-request)))
                                        headers: '((content-type application/json)))))
                               ((/ (submatch (+ any)))
                                (GET ,(lambda (continue device-id)
@@ -28,7 +28,7 @@
                                  (POST ,(lambda (continue device-id)
                                          (send-response
                                            status: 'ok
-                                           body: (format "Creating readings for Device ~A" device-id)
+                                           body: (format "Creating readings for Device ~A with ~A" device-id (read-urlencoded-request-data (current-request)))
                                            headers: '((content-type application/json)))))
                                      ))))))))
 (start-server)
