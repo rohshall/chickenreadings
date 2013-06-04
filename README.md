@@ -7,7 +7,7 @@ Web application in Chicken Scheme for device readings.
 
 ```
 brew install chicken
-chicken-install intarweb uri-common uri-generic sendfile spiffy uri-match spiffy-uri-match sql-null postgresql
+chicken-install spiffy spiffy-uri-match postgresql
 ```
 
 ## Building and Executing
