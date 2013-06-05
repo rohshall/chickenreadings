@@ -7,7 +7,7 @@ Web application in Chicken Scheme for device readings.
 
 ```
 brew install chicken
-chicken-install spiffy spiffy-uri-match postgresql
+chicken-install spiffy spiffy-uri-match postgresql json
 ```
 
 ## Building and Executing
